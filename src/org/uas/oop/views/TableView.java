@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 
-import org.uas.oop.bean.Transaksi;
 import org.uas.oop.views.TransaksiView;
 import org.uas.oop.bean.BarangATK;
 import org.uas.oop.bean.Pegawai;
@@ -147,44 +146,6 @@ public class TableView {
         	 PembeliView.displaymenuPembeli();//PegawaiView.displaymenuPegawai();
         }
 	}
-	
-	public static void displayTabelTransaksi(List<Transaksi> listTransaksi) {
-		char back;
-		Scanner scanner = new Scanner(System.in);
-		System.out.println();
-		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
-		System.out.println("    |							DATA TRANSAKSI					    		 |");
-		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
-		System.out.println("    |\tNo Transaksi\t\t|\tTanggal Transaksi\t\t\t|       Jumlah Beli      			 |");
-		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
-		for (Transaksi Tr : listTransaksi) {
-			System.out.println("    |\t"+Tr.getNoTransaksi()+"\t|       "+Tr.getTglTransaksi()+"\t        |       "+Tr.getJmlhBeli()+"\t|");
-		}
-		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
-		System.out.print("    | [V] Tekan Tombol V untuk kembali ke menu sebelumnya: ");
-		back = scanner.next().charAt(0);
-		if (back == 'V' || back == 'b') {
-			TransaksiView.displaymenuTransaksi();;
-		}
-	}
-	
-	public static void displayTupleTransaksi(Transaksi transaksi) {
-		char back;
-		Scanner scanner = new Scanner(System.in);
-		System.out.println();
-		System.out.println("     -----------------------------------------------------------");
-		System.out.println("    |		DATA TRANSAKSI				|");
-		System.out.println("     -----------------------------------------------------------");
-		System.out.println("    |No Transaksi\t\t: " + transaksi.getNoTransaksi()+"\t\t\t\t|");
-		System.out.println("    |Tanggal Transaksi\t\t: " + transaksi.getTglTransaksi()+"\t\t\t|");
-		System.out.println("    |Jumlah Beli\t\t: " + transaksi.getJmlhBeli()+"\t\t|");
-		System.out.println("     -----------------------------------------------------------");
-		System.out.print("    | [V] Tekan Tombol V untuk kembali ke menu sebelumnya: ");
-		back = scanner.next().charAt(0);
-		if (back == 'V' || back == 'v') {
-			TransaksiView.displaymenuTransaksi();
-		}
-	}
-	
+		
 
 }

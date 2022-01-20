@@ -2,10 +2,7 @@ package org.uas.oop.views;
 
 import java.util.Scanner;
 
-import org.uas.oop.bean.Transaksi;
-import org.uas.oop.daoimpl.TransaksiDAOimpl;
 import org.uas.oop.views.TransaksiView;
-import org.uas.oop.bean.Transaksi;
 import org.uas.oop.bean.BarangATK;
 import org.uas.oop.bean.Pegawai;
 import org.uas.oop.bean.Pembeli;
@@ -277,116 +274,4 @@ public class FormView {
 
 	}
 	
-	public static void formInsertTransaksi() {
-		Scanner scanner = new Scanner(System.in);
-		Scanner scanner2 = new Scanner(System.in);
-		char back;
-	Transaksi tr = new Transaksi();
-	TransaksiDAOimpl operation = new TransaksiDAOimpl();
-	System.out.println("              =========================================                  ");
-    System.out.println("              |      Form Insert Data Transaksi       |                  ");
-    System.out.println("              =========================================                  ");
-    System.out.print("              | No Transaksi		:");
-    tr.setNoTransaksi(scanner.nextInt());
-    System.out.print("              | Tanggal Transaksi	        :");
-    tr.setTglTransaksi(scanner2.nextInt());
-    System.out.print("              | Jumlah Beli            :");
-    tr.setJmlhBeli(scanner2.nextDouble());
-    System.out.println("              ==========================================					 ");
-    operation.saveTransaksi(tr);
-    System.out.println("[V] Tekan tombol V untuk kembali ke menu sebelumnya : ");
-    back = scanner2.next().charAt(0);
-    if (back == 'V' || back == 'v') {
-    	TransaksiView.displaymenuTransaksi();
-    }
-	}
-
-public static void formUpdateTransaksi() {
-	Scanner scanner = new Scanner(System.in);
-	Scanner scanner2 = new Scanner(System.in);
-	int noTransaksi;
-	char back;
-	Transaksi tr = new Transaksi();
-	TransaksiDAOimpl operation = new TransaksiDAOimpl();
-	System.out.println("Masukkan No Transaksi yang akan diupdate : ");
-	noTransaksi = scanner.nextInt();
-	System.out.println();
-	System.out.println("              ===========================================                 ");
-    System.out.println("              |       Form Update Data Transaksi        |      ");
-    System.out.println("              ===========================================                ");
-    System.out.print("              | No Transaksi			  :					|");
-    System.out.println(noTransaksi);
-    tr.setNoTransaksi(noTransaksi);
-    System.out.print("              | Tanggal Transaksi       :					|");
-    tr.setTglTransaksi(scanner.nextInt());
-    System.out.print("              | Jumlah Beli             :					|");
-    tr.setJmlhBeli(scanner2.nextDouble());
-            System.out.println("     ============================================");
-    operation.updateTransaksi(tr);;
-    System.out.println("[V] Tekan tombol V untuk kembali ke menu sebelumnya : ");
-    back = scanner2.next().charAt(0);
-    if (back == 'V' || back == 'v') {
-    	TransaksiView.displaymenuTransaksi();
-    }
-    
-
-}
-
-public static void formDeleteTransaksi() {
-	Scanner scanner = new Scanner(System.in);
-	int noTransaksi;
-	Transaksi tr = new Transaksi();
-	TransaksiDAOimpl operation = new TransaksiDAOimpl();//TransaksiDAOImpl operation = new TransaksiDAOImpl();
-	System.out.println("Masukkan No.Transaksi yang akan dihapus : ");
-	noTransaksi = scanner.nextInt();
-	tr.setNoTransaksi(noTransaksi);
-	operation.deleteTransaksi(tr);
-	
-}
-
-public static void formSearchTransaksi() {
-	Scanner scanner = new Scanner(System.in);
-	int noTransaksi;
-	Transaksi tr = new Transaksi();
-	TransaksiDAOimpl operation = new TransaksiDAOimpl();
-	System.out.println("Masukkan No.Transaksi yang akan dicari");
-	noTransaksi = scanner.nextInt();
-	tr.setNoTransaksi(noTransaksi);
-	operation.getTransaksiBynoTransaksi(noTransaksi);
-	
-}
-
-public static void formPembayaran() {
-	double totalHarga;
-	double uang;
-	double kembalian;
-	
-	Scanner scanner = new Scanner(System.in);                //Scanner sc = new Scanner();
-	
-	totalHarga = getJmlhBeli() * getHargabarang();
-	System.out.println("Total Harga : Rp." + totalHarga);
-	
-	System.out.println("Masukan Uang Anda :Rp.");
-	uang = scanner.nextDouble();
-	
-	if(totalHarga> 50000) {
-		totalHarga = totalHarga - (totalHarga*0.05);
-		System.out.println("Total Harga setelah dikurangi diskon : Rp." + totalHarga);
-	}
-	
-	if(uang > totalHarga) {
-		kembalian = uang - totalHarga;
-		System.out.println("Kembalian anda :Rp." +kembalian);
-	}
-}
-
-private static int getJmlhBeli() {
-	// TODO Auto-generated method stub
-	return 0;
-}
-
-private static int getHargabarang() {
-	// TODO Auto-generated method stub
-	return 0;
-}
 }
